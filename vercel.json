@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "content-dna-engine/backend/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.10"
+      }
+    },
+    {
+      "src": "frontend/brand-harmony-hub/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/brand-harmony-hub/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/v1/(.*)",
+      "dest": "content-dna-engine/backend/main.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "content-dna-engine/backend/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/brand-harmony-hub/dist/$1"
+    }
+  ]
+}

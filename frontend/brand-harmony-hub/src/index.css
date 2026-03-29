@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 250 20% 98%;
+    --foreground: 260 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 30% 10%;
+
+    --primary: 228 100% 69%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 70% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 260 20% 94%;
+    --muted-foreground: 260 10% 45%;
+
+    --accent: 187 85% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 260 15% 90%;
+    --input: 260 15% 90%;
+    --ring: 228 100% 69%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(228 100% 69%), hsl(270 70% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(225 55% 6%));
+    --gradient-card: linear-gradient(135deg, hsl(228 100% 69% / 0.08), hsl(270 70% 65% / 0.08));
+
+    --shadow-glow: 0 0 40px hsl(228 100% 69% / 0.2);
+    --shadow-card: 0 4px 30px hsl(228 100% 69% / 0.08);
+    --shadow-card-hover: 0 8px 40px hsl(228 100% 69% / 0.18);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 225 37% 6%;
+    --foreground: 220 20% 95%;
+    --card: 222 40% 11%;
+    --card-foreground: 220 20% 95%;
+    --popover: 222 40% 11%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 228 100% 69%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 70% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 35% 14%;
+    --muted-foreground: 220 20% 60%;
+    --accent: 187 85% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 50% 15%;
+    --input: 225 50% 15%;
+    --ring: 228 100% 69%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-light {
+    @apply bg-card backdrop-blur-xl border border-border rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-light:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-bg {
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-hero-bg {
+    background-image: var(--gradient-hero);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .btn-gradient {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    background-image: var(--gradient-primary);
+    color: white;
+  }
+
+  .btn-gradient:hover {
+    @apply scale-105;
+    box-shadow: 0 0 30px hsl(228 100% 69% / 0.4);
+  }
+
+  .btn-glass {
+    @apply px-6 py-3 rounded-full font-semibold glass transition-all duration-300;
+    color: white;
+  }
+
+  .btn-glass:hover {
+    @apply scale-105 bg-white/20;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px hsl(228 100% 69% / 0.5);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(228 100% 69% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(228 100% 69% / 0.6); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes typing-cursor {
+    0%, 100% { border-right-color: transparent; }
+    50% { border-right-color: hsl(270 70% 65%); }
+  }
+
+  .typing-cursor {
+    border-right: 3px solid;
+    animation: typing-cursor 0.8s step-end infinite;
+  }
+
+  @keyframes scroll-down {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.5; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-scroll-indicator {
+    animation: scroll-down 1.5s ease-in-out infinite;
+  }
+
+  @keyframes dna-bob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+  }
+
+  .animate-dna-bob {
+    animation: dna-bob 3s ease-in-out infinite;
+  }
+
+  .dna-glass-card {
+    background: hsl(230 30% 12% / 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(240 60% 60% / 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px hsl(230 40% 5% / 0.4);
+  }
+
+  .dna-float-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 99px;
+    backdrop-filter: blur(12px);
+    background: hsl(240 50% 50% / 0.12);
+    border: 1px solid hsl(240 60% 60% / 0.25);
+    color: hsl(230 60% 75%);
+    white-space: nowrap;
+  }
+
+  .btn-hero-primary {
+    background: linear-gradient(135deg, hsl(228 100% 69%), hsl(270 70% 65%));
+    color: white;
+    transition: all 0.3s;
+  }
+  .btn-hero-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px hsl(228 100% 69% / 0.4);
+  }
+
+  .btn-hero-secondary {
+    background: hsl(230 30% 15%);
+    border: 1px solid hsl(230 30% 25%);
+    color: hsl(230 20% 75%);
+    transition: all 0.3s;
+  }
+  .btn-hero-secondary:hover {
+    transform: scale(1.05);
+    background: hsl(230 30% 18%);
+  }
+
+  @keyframes spin-gradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .animate-spin-gradient {
+    animation: spin-gradient 1s linear infinite;
+  }
+}
+
+/* Float animations for DNA cards */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
