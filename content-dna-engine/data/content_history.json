@@ -1,0 +1,259 @@
+[
+  {
+    "timestamp": "2026-03-26T18:27:59.875425",
+    "content_type": "linkedin",
+    "score": 55,
+    "successful": false,
+    "dna": {
+      "tone": "professional",
+      "keywords": [
+        "powered",
+        "content marketing",
+        "guide",
+        "decade",
+        "quality",
+        "marketing",
+        "force",
+        "game",
+        "landscape",
+        "intersection",
+        "comprehensive",
+        "marketer",
+        "content",
+        "digital transformation",
+        "ai",
+        "strategy",
+        "transformation",
+        "optimize",
+        "creation",
+        "automation",
+        "intelligence",
+        "AI",
+        "artificial",
+        "scale"
+      ],
+      "avg_sentence_length": 12.67,
+      "content_type": "linkedin",
+      "word_count": 152,
+      "seo_keywords": [
+        "content",
+        "artificial",
+        "intelligence",
+        "marketing",
+        "comprehensive",
+        "guide",
+        "this",
+        "creation",
+        "digital",
+        "landscape"
+      ],
+      "readability_score": {
+        "flesch_score": 75.54,
+        "grade_level": "7th grade",
+        "avg_sentence_length": 12.7
+      },
+      "heading_structure": {
+        "h1_count": 0,
+        "h2_count": 0,
+        "h3_count": 0,
+        "total_headings": 0
+      }
+    },
+    "metrics": {
+      "word_count": 159,
+      "headings": 0,
+      "keywords_used": [
+        "powered",
+        "content marketing",
+        "guide",
+        "decade",
+        "quality"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-26T19:40:01.079898",
+    "content_type": "instagram",
+    "score": 55,
+    "successful": false,
+    "dna": {
+      "tone": "professional",
+      "keywords": [
+        "creation",
+        "content",
+        "work",
+        "intelligence",
+        "editing",
+        "tool",
+        "marketing",
+        "artificial",
+        "writing",
+        "creator",
+        "future",
+        "quality",
+        "ai"
+      ],
+      "avg_sentence_length": 10.33,
+      "content_type": "instagram",
+      "word_count": 31,
+      "seo_keywords": [
+        "content",
+        "artificial",
+        "intelligence",
+        "revolutionizing",
+        "from",
+        "automated",
+        "writing",
+        "intelligent",
+        "tools",
+        "helping"
+      ],
+      "readability_score": {
+        "flesch_score": 77.91,
+        "grade_level": "7th grade",
+        "avg_sentence_length": 10.3
+      },
+      "heading_structure": {
+        "h1_count": 0,
+        "h2_count": 0,
+        "h3_count": 0,
+        "total_headings": 0
+      }
+    },
+    "metrics": {
+      "word_count": 17,
+      "headings": 0,
+      "keywords_used": [
+        "creation",
+        "content",
+        "work",
+        "intelligence",
+        "editing"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-26T19:44:01.815883",
+    "content_type": "instagram",
+    "score": 82,
+    "successful": false,
+    "dna": {
+      "tone": "professional",
+      "keywords": [
+        "creator",
+        "intelligence",
+        "evolution",
+        "artificial",
+        "automation",
+        "content creation",
+        "AI",
+        "ai",
+        "post",
+        "machine learning",
+        "tool",
+        "grammar",
+        "future",
+        "creation",
+        "checker",
+        "content",
+        "journey",
+        "generator"
+      ],
+      "avg_sentence_length": 14.0,
+      "content_type": "instagram",
+      "word_count": 42,
+      "seo_keywords": [
+        "content",
+        "evolution",
+        "creation",
+        "artificial",
+        "intelligence",
+        "transformed",
+        "create",
+        "from",
+        "simple",
+        "grammar"
+      ],
+      "readability_score": {
+        "flesch_score": 74.19,
+        "grade_level": "7th grade",
+        "avg_sentence_length": 14.0
+      },
+      "heading_structure": {
+        "h1_count": 0,
+        "h2_count": 0,
+        "h3_count": 0,
+        "total_headings": 0
+      }
+    },
+    "metrics": {
+      "word_count": 90,
+      "headings": 0,
+      "keywords_used": [
+        "creator",
+        "intelligence",
+        "evolution",
+        "artificial",
+        "automation"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-26T19:55:17.424721",
+    "content_type": "instagram",
+    "score": 50,
+    "successful": false,
+    "dna": {
+      "tone": "professional",
+      "keywords": [
+        "innovation",
+        "content creation",
+        "AI",
+        "ai",
+        "dna",
+        "content",
+        "engine",
+        "post",
+        "contentcreation",
+        "🚀"
+      ],
+      "avg_sentence_length": 5.75,
+      "content_type": "instagram",
+      "word_count": 23,
+      "seo_keywords": [
+        "content",
+        "just",
+        "finished",
+        "building",
+        "first",
+        "analyzes",
+        "generates",
+        "optimized",
+        "excited",
+        "about"
+      ],
+      "readability_score": {
+        "flesch_score": 82.56,
+        "grade_level": "6th grade",
+        "avg_sentence_length": 5.8
+      },
+      "heading_structure": {
+        "h1_count": 0,
+        "h2_count": 0,
+        "h3_count": 0,
+        "total_headings": 0
+      }
+    },
+    "metrics": {
+      "word_count": 322,
+      "headings": 14,
+      "keywords_used": [
+        "innovation",
+        "content creation",
+        "AI",
+        "ai",
+        "dna"
+      ]
+    }
+  }
+]

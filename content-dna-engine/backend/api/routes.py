@@ -91,13 +91,7 @@ async def analyze_brand(
     files: List[UploadFile] = File(..., description="Upload content files (txt, md, etc.)"),
     brand_name: Optional[str] = Form(None, description="Optional brand name")
 ):
-    """
-    Analyze uploaded content to extract brand DNA
-    
-    - Upload one or more text files containing your brand's content
-    - The AI will analyze tone, keywords, style, and consistency
-    - Returns a brand ID and complete DNA profile
-    """
+    """Analyze uploaded content to extract brand DNA"""
     try:
         if not files:
             raise HTTPException(status_code=400, detail="No files uploaded")
@@ -110,16 +104,13 @@ async def analyze_brand(
             except:
                 contents.append(content.decode('latin-1'))
         
-        # Analyze brand
         brand_dna = await brand_analyzer.process(contents)
         
-        # Add brand name if provided
         if brand_name:
             brand_dna["brand_name"] = brand_name
         else:
             brand_dna["brand_name"] = f"Brand_{len(brand_profiles) + 1}"
         
-        # Generate unique ID for this brand
         brand_id = f"brand_{len(brand_profiles) + 1}"
         brand_profiles[brand_id] = brand_dna
         
@@ -152,22 +143,13 @@ async def generate_high_score(
         }
     )
 ):
-    """
-    Generate high-scoring content with tone control
-    
-    Request body (JSON):
-    - brand_id: ID from analyze-brand endpoint (or use: tech_company, creative_agency, corporate_firm)
-    - topic: What to write about
-    - platform: linkedin, instagram, blog, email
-    - tone_slider: 0 (casual) to 1 (formal)
-    """
+    """Generate high-scoring content with tone control"""
     try:
         brand_id = request.get("brand_id")
         topic = request.get("topic", "AI and content creation")
         platform = request.get("platform", "linkedin")
         tone_slider = request.get("tone_slider", 0.5)
         
-        # Get brand DNA
         if brand_id not in brand_profiles:
             available = list(brand_profiles.keys())
             return JSONResponse(
@@ -181,7 +163,6 @@ async def generate_high_score(
         
         brand_dna = brand_profiles[brand_id].copy()
         
-        # Apply tone slider (0=casual, 1=formal)
         if tone_slider < 0.3:
             brand_dna["tone"] = "casual"
             brand_dna["formality_score"] = 0.3
@@ -192,7 +173,6 @@ async def generate_high_score(
             brand_dna["tone"] = "professional"
             brand_dna["formality_score"] = 0.6
         
-        # Generate content
         generation_input = {
             "brand_dna": brand_dna,
             "content_type": platform,
@@ -202,7 +182,6 @@ async def generate_high_score(
         
         result = await content_generator.process(generation_input)
         
-        # Check consistency
         consistency_input = {
             "content": result["content"],
             "brand_dna": brand_dna,
@@ -211,7 +190,6 @@ async def generate_high_score(
         
         consistency_result = await consistency_checker.process(consistency_input)
         
-        # Adapt for multiple platforms
         adaptation_input = {
             "content": result["content"],
             "brand_dna": brand_dna,
@@ -243,23 +221,14 @@ async def generate_high_score(
         raise HTTPException(status_code=500, detail=f"Generation failed: {str(e)}")
 
 @router.post("/check-consistency")
-async def check_consistency(
-    request: Dict[str, Any] = Body(..., 
-        example={
-            "content": "Your content to check here",
-            "brand_id": "tech_company",
-            "platform": "linkedin"
-        }
-    )
-):
-    """
-    Check if content matches brand DNA
-    
-    Request body (JSON):
-    - content: The text to check
-    - brand_id: ID from analyze-brand endpoint
-    - platform: linkedin, instagram, blog, email
-    """
+async def check_consistency(request: Dict[str, Any] = Body(..., 
+    example={
+        "content": "Your content to check here",
+        "brand_id": "tech_company",
+        "platform": "linkedin"
+    }
+)):
+    """Check if content matches brand DNA"""
     try:
         content = request.get("content", "")
         brand_id = request.get("brand_id", "")
@@ -309,12 +278,7 @@ async def check_consistency(
 
 @router.get("/brand-dashboard/{brand_id}")
 async def get_brand_dashboard(brand_id: str):
-    """
-    Get comprehensive brand dashboard with visualizations
-    
-    Path parameter:
-    - brand_id: ID from analyze-brand endpoint
-    """
+    """Get comprehensive brand dashboard with visualizations"""
     try:
         if brand_id not in brand_profiles:
             available = list(brand_profiles.keys())
@@ -329,7 +293,6 @@ async def get_brand_dashboard(brand_id: str):
         
         brand_dna = brand_profiles[brand_id]
         
-        # Prepare dashboard data
         dashboard = {
             "success": True,
             "brand_id": brand_id,
@@ -370,14 +333,7 @@ async def adapt_multi_platform(
         }
     )
 ):
-    """
-    Adapt content for multiple platforms
-    
-    Request body (JSON):
-    - content: The base content to adapt
-    - brand_id: ID from analyze-brand endpoint
-    - platforms: List of platforms (linkedin, instagram, blog, twitter, email)
-    """
+    """Adapt content for multiple platforms"""
     try:
         content = request.get("content", "")
         brand_id = request.get("brand_id", "")
@@ -422,12 +378,7 @@ async def adapt_multi_platform(
 
 @router.get("/brand-drift-alert/{brand_id}")
 async def check_brand_drift(brand_id: str):
-    """
-    Check for brand drift over time
-    
-    Path parameter:
-    - brand_id: ID from analyze-brand endpoint
-    """
+    """Check for brand drift over time"""
     try:
         if brand_id not in brand_profiles:
             available = list(brand_profiles.keys())
@@ -442,7 +393,6 @@ async def check_brand_drift(brand_id: str):
         
         brand_dna = brand_profiles[brand_id]
         
-        # Calculate drift based on consistency score
         drift_score = (1 - brand_dna.get("brand_consistency_score", 0.8)) * 100
         
         return {

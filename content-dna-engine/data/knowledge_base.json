@@ -1,0 +1,66 @@
+{
+  "successful_patterns": {
+    "keywords": {},
+    "tones": {},
+    "structures": {},
+    "sentence_lengths": [],
+    "avg_scores": []
+  },
+  "failed_patterns": {
+    "keywords": {
+      "powered": 1,
+      "content marketing": 1,
+      "guide": 1,
+      "decade": 1,
+      "quality": 2,
+      "marketing": 2,
+      "force": 1,
+      "game": 1,
+      "landscape": 1,
+      "intersection": 1,
+      "comprehensive": 1,
+      "marketer": 1,
+      "content": 4,
+      "digital transformation": 1,
+      "ai": 4,
+      "strategy": 1,
+      "transformation": 1,
+      "optimize": 1,
+      "creation": 3,
+      "automation": 2,
+      "intelligence": 3,
+      "AI": 3,
+      "artificial": 3,
+      "scale": 1,
+      "work": 1,
+      "editing": 1,
+      "tool": 2,
+      "writing": 1,
+      "creator": 2,
+      "future": 2,
+      "evolution": 1,
+      "content creation": 2,
+      "post": 2,
+      "machine learning": 1,
+      "grammar": 1,
+      "checker": 1,
+      "journey": 1,
+      "generator": 1,
+      "innovation": 1,
+      "dna": 1,
+      "engine": 1,
+      "contentcreation": 1,
+      "🚀": 1
+    },
+    "tones": {
+      "professional": 4
+    },
+    "structures": {
+      "linkedin": 1,
+      "instagram": 3
+    }
+  },
+  "top_performers": [],
+  "industry_insights": {},
+  "seo_patterns": {}
+}
